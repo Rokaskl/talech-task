@@ -7,10 +7,13 @@ import Tab from "@material-ui/core/Tab";
 import ProductDetails from "./ProductDetails";
 import ProductPriceHistory from "./ProductPriceHistory";
 import ProductQuantityHistory from "./ProductQuantityHistory";
+import { IconButton, Tooltip } from "@material-ui/core";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import { findByLabelText } from "@testing-library/react";
 
 const useStyles = makeStyles({
   root: {
-    flexGrow: 1,
+    display: "flex",
   },
 });
 
@@ -33,6 +36,11 @@ export default function ProductPreview(props) {
   return (
     <div>
       <Paper className={classes.root}>
+        <Tooltip title="Back To List">
+          <IconButton aria-label="back" component={Link} to="/products">
+            <ArrowBackIosIcon />
+          </IconButton>
+        </Tooltip>
         <Tabs
           value={value}
           onChange={handleChange}
