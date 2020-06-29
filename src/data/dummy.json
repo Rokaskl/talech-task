@@ -1,0 +1,70 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Cookie",
+      "ean": "15444321",
+      "type": "food",
+      "weight": 0.05,
+      "color": "brown",
+      "active": true,
+      "quantity": 19,
+      "price": 1.99
+    },
+    {
+      "id": 2,
+      "name": "Socks",
+      "ean": "15444322",
+      "type": "clothes",
+      "weight": 0.2,
+      "color": "white",
+      "active": true,
+      "quantity": 9,
+      "price": 3.99
+    },
+    {
+      "id": 3,
+      "name": "Mask",
+      "ean": "15444323",
+      "type": "clothes",
+      "weight": 0.1,
+      "color": "white",
+      "active": true,
+      "quantity": 0,
+      "price": 99.99
+    },
+    {
+      "id": 4,
+      "name": "Banana",
+      "ean": "15444324",
+      "type": "food",
+      "weight": 0.1,
+      "color": "yellow",
+      "active": false,
+      "quantity": 0,
+      "price": 0.45
+    },
+    {
+      "id": 5,
+      "name": "T-Shirt",
+      "ean": "15444325",
+      "type": "clothes",
+      "weight": 0.5,
+      "color": "black",
+      "active": true,
+      "quantity": 999,
+      "price": 9.99
+    },
+    {
+      "id": 6,
+      "name": "Shorts",
+      "ean": "15444325",
+      "type": "clothes",
+      "weight": 1.5,
+      "color": "black",
+      "active": true,
+      "quantity": 0,
+      "price": 19.99
+    }
+  ]
+}

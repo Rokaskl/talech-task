@@ -4,8 +4,10 @@ import ProductPreview from "./components/ProductPreview";
 import ProductsList from "./components/ProductsList";
 import ProductNew from "./components/ProductNew";
 import ProductEdit from "./components/ProductEdit";
+import data from "./data/dummy.json";
 
 function App() {
+  localStorage.setItem("products", JSON.stringify(data.products));
   return (
     <div className="App">
       <Router>
