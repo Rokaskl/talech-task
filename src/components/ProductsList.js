@@ -9,6 +9,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import Checkbox from "@material-ui/core/Checkbox";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   table: {
@@ -19,6 +20,7 @@ const useStyles = makeStyles({
 export default function ProductsList() {
   const classes = useStyles();
   const rows = JSON.parse(localStorage.getItem("products"));
+
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
@@ -27,10 +29,10 @@ export default function ProductsList() {
             <TableCell>Name</TableCell>
             <TableCell>EAN</TableCell>
             <TableCell>Type</TableCell>
-            <TableCell align="right">Weight</TableCell>
+            <TableCell align="right">Weight(Kg)</TableCell>
             <TableCell>Color</TableCell>
             <TableCell align="right">Quantity</TableCell>
-            <TableCell align="right">Price</TableCell>
+            <TableCell align="right">Price(Eur)</TableCell>
             <TableCell>Active</TableCell>
             <TableCell>Actions</TableCell>
           </TableRow>
@@ -51,7 +53,13 @@ export default function ProductsList() {
                 <Checkbox checked={row.active} />
               </TableCell>
               <TableCell>
-                <Button variant="contained">View</Button>
+                <Button
+                  variant="contained"
+                  component={Link}
+                  to={`products/${row.id}`}
+                >
+                  View
+                </Button>
                 <Button variant="contained" color="primary">
                   Edit
                 </Button>

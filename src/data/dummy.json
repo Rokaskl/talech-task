@@ -1,9 +1,9 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "1331",
       "name": "Cookie",
-      "ean": "15444321",
+      "ean": "978020137962",
       "type": "food",
       "weight": 0.05,
       "color": "brown",
@@ -12,9 +12,9 @@
       "price": 1.99
     },
     {
-      "id": 2,
+      "id": "1333",
       "name": "Socks",
-      "ean": "15444322",
+      "ean": "978020137963",
       "type": "clothes",
       "weight": 0.2,
       "color": "white",
@@ -23,9 +23,9 @@
       "price": 3.99
     },
     {
-      "id": 3,
+      "id": "1433",
       "name": "Mask",
-      "ean": "15444323",
+      "ean": "978020137964",
       "type": "clothes",
       "weight": 0.1,
       "color": "white",
@@ -34,9 +34,9 @@
       "price": 99.99
     },
     {
-      "id": 4,
+      "id": "1733",
       "name": "Banana",
-      "ean": "15444324",
+      "ean": "978020137965",
       "type": "food",
       "weight": 0.1,
       "color": "yellow",
@@ -45,9 +45,9 @@
       "price": 0.45
     },
     {
-      "id": 5,
+      "id": "12333",
       "name": "T-Shirt",
-      "ean": "15444325",
+      "ean": "978020137966",
       "type": "clothes",
       "weight": 0.5,
       "color": "black",
@@ -56,7 +56,7 @@
       "price": 9.99
     },
     {
-      "id": 6,
+      "id": "299a",
       "name": "Shorts",
       "ean": "15444325",
       "type": "clothes",
