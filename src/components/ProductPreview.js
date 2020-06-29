@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Switch, Link, useRouteMatch } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
@@ -9,7 +9,6 @@ import ProductPriceHistory from "./ProductPriceHistory";
 import ProductQuantityHistory from "./ProductQuantityHistory";
 import { IconButton, Tooltip } from "@material-ui/core";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
-import { findByLabelText } from "@testing-library/react";
 
 const useStyles = makeStyles({
   root: {
@@ -18,8 +17,7 @@ const useStyles = makeStyles({
 });
 
 export default function ProductPreview(props) {
-  let { url } = useRouteMatch();
-
+  const { url } = useRouteMatch();
   const id = props.match.params.id;
   const products = JSON.parse(localStorage.getItem("products"));
   const product = products.find((obj) => {
@@ -27,10 +25,10 @@ export default function ProductPreview(props) {
   });
 
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [tab, setTab] = useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const handleChange = (event, newTab) => {
+    setTab(newTab);
   };
 
   return (
@@ -42,7 +40,7 @@ export default function ProductPreview(props) {
           </IconButton>
         </Tooltip>
         <Tabs
-          value={value}
+          value={tab}
           onChange={handleChange}
           indicatorColor="primary"
           textColor="primary"

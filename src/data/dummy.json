@@ -3,7 +3,7 @@
     {
       "id": "1331",
       "name": "Cookie",
-      "ean": "978020137962",
+      "ean": "9780201379626",
       "type": "food",
       "weight": 0.05,
       "color": "brown",
@@ -14,7 +14,7 @@
     {
       "id": "1333",
       "name": "Socks",
-      "ean": "978020137963",
+      "ean": "9780201379625",
       "type": "clothes",
       "weight": 0.2,
       "color": "white",
@@ -25,7 +25,7 @@
     {
       "id": "1433",
       "name": "Mask",
-      "ean": "978020137964",
+      "ean": "9780201379624",
       "type": "clothes",
       "weight": 0.1,
       "color": "white",
@@ -36,7 +36,7 @@
     {
       "id": "1733",
       "name": "Banana",
-      "ean": "978020137965",
+      "ean": "9780201379623",
       "type": "food",
       "weight": 0.1,
       "color": "yellow",
@@ -47,7 +47,7 @@
     {
       "id": "12333",
       "name": "T-Shirt",
-      "ean": "978020137966",
+      "ean": "9780201379622",
       "type": "clothes",
       "weight": 0.5,
       "color": "black",
@@ -58,7 +58,7 @@
     {
       "id": "299a",
       "name": "Shorts",
-      "ean": "15444325",
+      "ean": "978020137961",
       "type": "clothes",
       "weight": 1.5,
       "color": "black",

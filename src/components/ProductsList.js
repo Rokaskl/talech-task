@@ -23,7 +23,15 @@ export default function ProductsList() {
 
   return (
     <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
+      <Button
+        variant="contained"
+        color="primary"
+        component={Link}
+        to={`products/create`}
+      >
+        Create Product
+      </Button>
+      <Table className={classes.table} aria-label="products table">
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>
@@ -39,7 +47,10 @@ export default function ProductsList() {
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <TableRow key={row.name}>
+            <TableRow
+              key={row.name}
+              style={row.quantity === 0 ? { backgroundColor: "#ffdee2" } : {}}
+            >
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
@@ -50,7 +61,7 @@ export default function ProductsList() {
               <TableCell align="right">{row.quantity}</TableCell>
               <TableCell align="right">{row.price}</TableCell>
               <TableCell>
-                <Checkbox checked={row.active} />
+                <Checkbox color="primary" checked={row.active} />
               </TableCell>
               <TableCell>
                 <Button
@@ -60,7 +71,12 @@ export default function ProductsList() {
                 >
                   View
                 </Button>
-                <Button variant="contained" color="primary">
+                <Button
+                  variant="contained"
+                  color="primary"
+                  component={Link}
+                  to={`products/${row.id}/edit`}
+                >
                   Edit
                 </Button>
                 <Button variant="contained" color="secondary">
