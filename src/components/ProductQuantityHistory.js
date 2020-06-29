@@ -2,7 +2,7 @@ import React from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
-export default function ProductQuantityHistory() {
+export default function ProductQuantityHistory(props) {
   const options = {
     chart: {
       type: "spline",
@@ -10,10 +10,22 @@ export default function ProductQuantityHistory() {
     title: {
       text: "Quantity History",
     },
+    xAxis: {
+      type: "datetime",
+      labels: {
+        format: "{value:%Y-%m-%d}",
+        rotation: 45,
+        align: "left",
+      },
+    },
     series: [
       {
-        data: [1, 2, 1, 4, 3, 6],
-        name: "Quantity",
+        data: (() => {
+          return props.product.quantityHistory.map(function (point) {
+            return [Date.parse(point[0]), point[1]];
+          });
+        })(),
+        name: "Price",
       },
     ],
   };

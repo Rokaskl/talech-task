@@ -63,11 +63,11 @@ export default function ProductPreview(props) {
         <Switch>
           <Route
             path={`${url}/priceHistory`}
-            component={() => <ProductPriceHistory />}
+            component={() => <ProductPriceHistory product={product} />}
           />
           <Route
             path={`${url}/quantityHistory`}
-            component={() => <ProductQuantityHistory />}
+            component={() => <ProductQuantityHistory product={product} />}
           />
           <Route component={() => <ProductDetails product={product} />} />
         </Switch>
