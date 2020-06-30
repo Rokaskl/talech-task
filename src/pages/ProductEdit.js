@@ -98,7 +98,7 @@ export default function ProductEdit(props) {
     ) {
       let newQuantityEntry = [
         moment(Date.now()).format("YYYY-MM-DD:HH:mm:ss"),
-        newProduct.quantity,
+        Number(newProduct.quantity),
       ];
       setNewProduct({
         quantityHistory: newProduct.quantityHistory.push(newQuantityEntry),
@@ -114,6 +114,7 @@ export default function ProductEdit(props) {
       </Typography>
       <Paper>
         <ProductForm
+          history={props.history}
           errors={errors}
           newProduct={newProduct}
           handleChange={handleChange}

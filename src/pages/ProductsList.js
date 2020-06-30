@@ -33,6 +33,15 @@ export default function ProductsList() {
     localStorage.setItem("products", JSON.stringify(newProducts));
   };
 
+  const handleDelete = (id) => {
+    console.log("deleting : " + id);
+    let newProducts = products.filter((obj) => {
+      return obj.id !== id;
+    });
+    localStorage.setItem("products", JSON.stringify(newProducts));
+    setProducts(newProducts);
+  };
+
   return (
     <TableContainer component={Paper}>
       <Button
@@ -97,7 +106,11 @@ export default function ProductsList() {
                 >
                   Edit
                 </Button>
-                <DeleteModal />
+                <DeleteModal
+                  handleDelete={handleDelete}
+                  id={row.id}
+                  name={row.name}
+                />
               </TableCell>
             </TableRow>
           ))}

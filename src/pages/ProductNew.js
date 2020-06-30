@@ -117,6 +117,7 @@ export default function ProductNew(props) {
       </Typography>
       <Paper>
         <ProductForm
+          history={props.history}
           errors={errors}
           newProduct={newProduct}
           handleChange={handleChange}

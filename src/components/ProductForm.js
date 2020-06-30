@@ -10,7 +10,11 @@ export default function ProductForm(props) {
   const edited = props.edited;
 
   return (
-    <Grid container spacing={3}>
+    <Grid
+      container
+      spacing={3}
+      style={{ paddingLeft: "1em", paddingRight: "1em" }}
+    >
       <Grid item xs={12} sm={6}>
         <TextField
           fullWidth
