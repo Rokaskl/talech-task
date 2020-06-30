@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -18,8 +18,19 @@ const useStyles = makeStyles({
 });
 
 export default function ProductsList() {
+  const data = JSON.parse(localStorage.getItem("products"));
   const classes = useStyles();
-  const rows = JSON.parse(localStorage.getItem("products"));
+  const [products, setProducts] = useState(data);
+  const toggleActive = (id) => {
+    const index = products.findIndex((obj) => obj.id === id);
+    let newProducts = [...products];
+    let product = { ...products[index] };
+    product.active = !product.active;
+    newProducts[index] = product;
+
+    setProducts(newProducts);
+    localStorage.setItem("products", JSON.stringify(newProducts));
+  };
 
   return (
     <TableContainer component={Paper}>
@@ -46,7 +57,7 @@ export default function ProductsList() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {products.map((row) => (
             <TableRow
               key={row.name}
               style={row.quantity === 0 ? { backgroundColor: "#ffdee2" } : {}}
@@ -61,7 +72,13 @@ export default function ProductsList() {
               <TableCell align="right">{row.quantity}</TableCell>
               <TableCell align="right">{row.price}</TableCell>
               <TableCell>
-                <Checkbox color="primary" checked={row.active} />
+                <Checkbox
+                  color="primary"
+                  checked={row.active}
+                  onClick={() => {
+                    toggleActive(row.id);
+                  }}
+                />
               </TableCell>
               <TableCell>
                 <Button

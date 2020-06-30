@@ -4,6 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
+import moment from "moment";
 
 export default function ProductEdit(props) {
   const id = props.match.params.id;
@@ -14,6 +15,7 @@ export default function ProductEdit(props) {
   const [newProduct, setNewProduct] = useState(product);
   const [edited, setEdited] = useState(false);
   const [errors, setErrors] = useState({});
+
   const handleChange = (event) => {
     setNewProduct({
       ...newProduct,
@@ -21,25 +23,23 @@ export default function ProductEdit(props) {
     });
     setEdited(true);
   };
+
   const handleSubmit = () => {
     const index = products.findIndex((obj) => obj.id === id);
-    clearErrors();
     if (validate()) {
+      handleHistory();
       let newProducts = products;
       newProducts[index] = newProduct;
       localStorage.setItem("products", JSON.stringify(newProducts));
       props.history.push("/products");
     }
   };
-  const clearErrors = () => {
-    setErrors();
-  };
 
   function validate() {
     let tempErrors = {};
     //Check empty fields
     for (var property in newProduct) {
-      if (!newProduct[property]) {
+      if (newProduct[property].length <= 0) {
         tempErrors = {
           ...tempErrors,
           [property]: "Can not be empty!",
@@ -80,6 +80,34 @@ export default function ProductEdit(props) {
     }
     return true;
   }
+
+  const handleHistory = () => {
+    if (
+      newProduct.priceHistory.slice(-1).pop()[1] !== Number(newProduct.price)
+    ) {
+      let newPriceEntry = [
+        moment(Date.now()).format("YYYY-MM-DD:HH:mm:ss"),
+        Number(newProduct.price),
+      ];
+      setNewProduct({
+        priceHistory: newProduct.priceHistory.push(newPriceEntry),
+        ...newProduct,
+      });
+    }
+    if (
+      newProduct.quantityHistory.slice(-1).pop()[1] !==
+      Number(newProduct.quantity)
+    ) {
+      let newQuantityEntry = [
+        moment(Date.now()).format("YYYY-MM-DD:HH:mm:ss"),
+        newProduct.quantity,
+      ];
+      setNewProduct({
+        quantityHistory: newProduct.quantityHistory.push(newQuantityEntry),
+        ...newProduct,
+      });
+    }
+  };
 
   return (
     <div>

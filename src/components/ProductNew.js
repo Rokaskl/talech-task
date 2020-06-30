@@ -4,6 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
+import moment from "moment";
 
 export default function ProductNew(props) {
   const products = JSON.parse(localStorage.getItem("products"));
@@ -13,40 +14,61 @@ export default function ProductNew(props) {
     type: "",
     weight: "",
     color: "",
-    active: true,
+    active: false,
     quantity: "",
     price: "",
   });
   const [errors, setErrors] = useState({});
+
   const handleChange = (event) => {
     setNewProduct({
       ...newProduct,
       [event.target.name]: event.target.value,
     });
   };
+
   const handleSubmit = () => {
     if (validate()) {
       const id = generateId();
-      console.log(id);
+
+      let newQuantityEntry = [
+        moment(Date.now()).format("YYYY-MM-DD:HH:mm:ss"),
+        Number(newProduct.quantity),
+      ];
+
+      let newPriceEntry = [
+        moment(Date.now()).format("YYYY-MM-DD:HH:mm:ss"),
+        Number(newProduct.price),
+      ];
+
       localStorage.setItem(
         "products",
-        JSON.stringify([...products, { ...newProduct, id: id }])
+        JSON.stringify([
+          ...products,
+          {
+            ...newProduct,
+            id: id,
+            quantityHistory: [newQuantityEntry],
+            priceHistory: [newPriceEntry],
+          },
+        ])
       );
       props.history.push("/products");
     }
   };
+
   function generateId() {
     const max = products.reduce((prev, current) =>
       prev.y > current.y ? prev : current
     ).id;
-
     return max + 1;
   }
+
   function validate() {
     let tempErrors = {};
     //Check empty fields
     for (var property in newProduct) {
-      if (!newProduct[property]) {
+      if (newProduct[property].length <= 0) {
         tempErrors = {
           ...tempErrors,
           [property]: "Can not be empty!",
