@@ -34,7 +34,6 @@ export default function ProductsList() {
   };
 
   const handleDelete = (id) => {
-    console.log("deleting : " + id);
     let newProducts = products.filter((obj) => {
       return obj.id !== id;
     });

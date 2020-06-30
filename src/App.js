@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import ProductPreview from "./pages/ProductPreview";
 import ProductsList from "./pages/ProductsList";
 import ProductNew from "./pages/ProductNew";
@@ -16,6 +21,7 @@ function App() {
           <Route path="/products/:id/edit" component={ProductEdit} />
           <Route path="/products/:id" component={ProductPreview} />
           <Route path="/products" component={ProductsList} />
+          <Redirect to="/products" />
         </Switch>
       </Router>
     </div>

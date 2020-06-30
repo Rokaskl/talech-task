@@ -25,6 +25,10 @@ export default function ProductPreview(props) {
     return obj.id === id;
   });
 
+  if (!product) {
+    props.history.push("/products");
+  }
+
   const classes = useStyles();
   const [tab, setTab] = useState(0);
 
@@ -32,7 +36,9 @@ export default function ProductPreview(props) {
     setTab(newTab);
   };
 
-  return (
+  return !product ? (
+    <h2>Nothing found... :(</h2>
+  ) : (
     <div>
       <Paper className={classes.root}>
         <Tooltip title="Back To List">
