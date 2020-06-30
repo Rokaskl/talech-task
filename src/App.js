@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ProductPreview from "./components/ProductPreview";
-import ProductsList from "./components/ProductsList";
-import ProductNew from "./components/ProductNew";
-import ProductEdit from "./components/ProductEdit";
+import ProductPreview from "./pages/ProductPreview";
+import ProductsList from "./pages/ProductsList";
+import ProductNew from "./pages/ProductNew";
+import ProductEdit from "./pages/ProductEdit";
 import data from "./data/dummy.json";
 
 function App() {

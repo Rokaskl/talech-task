@@ -4,15 +4,16 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import ProductDetails from "./ProductDetails";
-import ProductPriceHistory from "./ProductPriceHistory";
-import ProductQuantityHistory from "./ProductQuantityHistory";
+import ProductDetails from "../components/ProductDetails";
+import ProductPriceHistory from "../components/ProductPriceHistory";
+import ProductQuantityHistory from "../components/ProductQuantityHistory";
 import { IconButton, Tooltip } from "@material-ui/core";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
 const useStyles = makeStyles({
   root: {
     display: "flex",
+    marginBottom: "1em",
   },
 });
 

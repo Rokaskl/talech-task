@@ -10,6 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import Checkbox from "@material-ui/core/Checkbox";
 import { Link } from "react-router-dom";
+import DeleteModal from "../components/DeleteModal";
 
 const useStyles = makeStyles({
   table: {
@@ -96,9 +97,7 @@ export default function ProductsList() {
                 >
                   Edit
                 </Button>
-                <Button variant="contained" color="secondary">
-                  Delete
-                </Button>
+                <DeleteModal />
               </TableCell>
             </TableRow>
           ))}
